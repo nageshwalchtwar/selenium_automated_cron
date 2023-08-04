@@ -1,8 +1,9 @@
 name: Run Selenium Script
 
 on:
-  schedule:
-    - cron: '49 18 * * * *'  
+  push:
+      branches:
+          - main
 
 jobs:
   run_script:
