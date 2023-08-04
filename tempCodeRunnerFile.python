@@ -1,0 +1,42 @@
+ #ritik con
+node_name= str(input('enter the name of node/tank: '))
+tank_volume=float(input('Enter the total volume of the tank: '))
+Depth_tank= float(input('Enter the depth of tank: '))
+breadth_tank= float(input('Enter the breadth of tank: '))
+length_tank= float(input('Enter the length of tank: '))
+upper_limit= float(input('Enter the upper_limit of vol (cm): '))
+lower_limit= float(input('Enter the lower_limit of vol (cm): '))
+fill_time=float(input('Enter time for fill: '))
+print('Connecting to node ->'+node_name)
+print('Connected , information is listed below')
+#so the change in water level (cm)
+change_water_level= upper_limit-lower_limit
+print('change in water level is: ',change_water_level)
+
+#converting the vol to litres
+tank_volume=tank_volume*1000
+print('Tank vol is: ',tank_volume)
+
+#converting all from meters to cm
+Depth_tank=Depth_tank*100
+breadth_tank=breadth_tank*100
+length_tank=length_tank*100
+
+#area of base of tank 
+area_base=length_tank*breadth_tank
+
+#vol of water 
+vol_water=area_base*change_water_level/1000
+print('volume of water  is: ',vol_water)
+
+#filling rate 
+fill_rate=vol_water/fill_time
+print('fill rate is: ',fill_rate)
+
+
+#vol of water consumed
+vol_water_consumed = tank_volume- vol_water
+
+#consumption rate 
+consumption_rate= vol_water_consumed/fill_time
+print('consumption rate is: ',consumption_rate)

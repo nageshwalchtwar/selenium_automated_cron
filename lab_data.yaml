@@ -1,0 +1,50 @@
+- locator_strategy: id
+  locator_value: ":r5:"
+  action: input
+  value:  theccbussiness@gmail.com
+- locator_strategy: xpath
+  locator_value: //*[@id=":r6:"]
+  action: input
+- locator_strategy: xpath
+  locator_value: //button[contains(@class,"MuiButtonBase-root MuiButton-root MuiButton-contained
+    MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root
+    MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge
+    mt-2 css-ge0mlf")]
+  action: click
+- locator_strategy: vr
+  locator_value: "Vanishing Rod"
+  action: click
+- locator_strategy: alert_text
+  locator_value: none
+  action: handle_prompt
+  prompts:
+  - prompt_text: Experiment is currently offline
+    email_recipient: nageshwalchtwar257@gmail.com
+    email_subject: Experiment Offline
+  - prompt_text: Experiment is currently in use
+    action: accept_prompt
+- locator_strategy: xpath
+  locator_value: //*[contains(text(), 'Move Down')]
+  action: click
+- locator_strategy: xpath
+  locator_value: //video[@class='max-h-[95%] min-h-[95%] min-w-[95%] max-w-[95%] object-contain']
+  action: process_video_frames
+- locator_strategy: xpath
+  locator_value: //*[contains(text(), 'Move Up')]
+  action: click
+- locator_strategy: xpath
+  locator_value: //video[@class='max-h-[95%] min-h-[95%] min-w-[95%] max-w-[95%] object-contain']
+  action: process_video_frames
+- locator_strategy: xpath
+  locator_value: //*[@id="root"]/div/div/div/div[1]/div/div[3]/button
+  action: click
+
+# - locator_strategy: xpath+
+#   locator_value: //*[contains(text(), 'Exit Experiment')]
+#   action: click
+# - locator_strategy: xpath
+#   locator_value: //*[contains(text(), 'Move Up')]
+#   action: click
+# - locator_strategy: xpath
+#   locator_value: //video[@class='max-h-[95%] min-h-[95%] min-w-[95%] max-w-[95%] object-contain']
+#   action: process_video_frames
