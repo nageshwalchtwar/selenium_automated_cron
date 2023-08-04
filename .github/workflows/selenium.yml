@@ -42,4 +42,4 @@ jobs:
 
     - name: Run Selenium script
       run: |
-        python /path/to/your/selenium_script.py
+        python lab_selenium.py
