@@ -18,7 +18,10 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Install Chrome WebDriver
+      - name: Remove existing ChromeDriver
+        run: sudo rm /usr/local/bin/chromedriver
+
+      - name: Install compatible ChromeDriver
         run: |
           LATEST=$(wget -q -O - https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
           wget https://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
