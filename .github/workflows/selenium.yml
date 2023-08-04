@@ -2,7 +2,7 @@ name: Run Selenium Script
 
 on:
   schedule:
-    - cron: '*/2 * * * *'  # Run at 3:00 PM UTC (adjust as needed)
+    - cron: '*/1 * * * *'  # Run at 3:00 PM UTC (adjust as needed)
 
 jobs:
   run_script:
