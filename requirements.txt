@@ -1,0 +1,6 @@
+selenium
+opencv-python
+Pillow
+pyyaml
+python-dotenv
+scikit-image
