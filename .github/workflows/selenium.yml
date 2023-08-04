@@ -10,23 +10,38 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
 
-      - name: Install compatible ChromeDriver
-        run: |
-          LATEST=$(wget -q -O - https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-          wget https://chromedriver.storage.googleapis.com/$LATEST/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip -d /usr/local/bin
-          chmod +x /usr/local/bin/chromedriver
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install selenium
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+    - name: Install Chrome
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libnss3
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo dpkg -i google-chrome-stable_current_amd64.deb
+      # Add error handling for Chrome installation
+      continue-on-error: true
 
-      - name: Run Selenium Script
-        run: python lab_selenium.py
+    - name: Install ChromeDriver
+      run: |
+        LATEST_CHROMEDRIVER=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+        wget -q "https://chromedriver.storage.googleapis.com/$LATEST_CHROMEDRIVER/chromedriver_linux64.zip" -O chromedriver.zip
+        unzip chromedriver.zip
+        chmod +x chromedriver
+        sudo mv chromedriver /usr/local/bin/
+      # Add error handling for ChromeDriver installation
+      continue-on-error: true
+
+    - name: Run Selenium script
+      run: |
+        python lab_selenium.py
