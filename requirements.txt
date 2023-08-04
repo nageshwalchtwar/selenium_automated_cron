@@ -2,5 +2,6 @@ selenium
 opencv-python
 Pillow
 pyyaml
+imagehash
 python-dotenv
 scikit-image
