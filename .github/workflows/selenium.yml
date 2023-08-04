@@ -18,9 +18,6 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Remove existing ChromeDriver
-        run: sudo rm /usr/local/bin/chromedriver
-
       - name: Install compatible ChromeDriver
         run: |
           LATEST=$(wget -q -O - https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
