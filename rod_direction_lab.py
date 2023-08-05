@@ -101,8 +101,8 @@ def process_image(image_path1, image_path2):
 
     # Display the image with filtered bounding boxes
     # cv2.imwrite("Image with Filtered Bounding Boxes", image1) 
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
 
     # Return the list of bounding boxes
     return bounding_boxes
