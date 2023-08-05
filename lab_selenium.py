@@ -174,7 +174,7 @@ def perform_action(element):
             parentDiv.scrollIntoView(true);
             """
             driver.execute_script(script)
-            time.sleep(1) #nagesh
+            time.sleep(3) #nagesh
             button = driver.find_element(By.ID, "Vanishing Rod")
             button.click()
         else:
