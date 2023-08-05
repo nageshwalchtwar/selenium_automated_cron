@@ -100,7 +100,7 @@ def process_image(image_path1, image_path2):
             cv2.rectangle(image1, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
     # Display the image with filtered bounding boxes
-    cv2.imwrite("Image with Filtered Bounding Boxes", image1) 
+    # cv2.imwrite("Image with Filtered Bounding Boxes", image1) 
     # cv2.waitKey(0)
     # cv2.destroyAllWindows()
 
