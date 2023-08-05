@@ -38,8 +38,8 @@ jobs:
       - name: Start Xvfb
         run: Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
 
-      # - name: Running the Timing script
-      #   run: python lab_timing.py
+      - name: Running the Timing script
+        run: python lab_timing.py
         
       - name: Running rod direction
         run: python rod_direction_lab.py
