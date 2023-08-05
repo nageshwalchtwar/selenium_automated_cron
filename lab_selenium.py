@@ -1,4 +1,5 @@
 import os
+os.environ['DISPLAY'] = ':99'
 import yaml
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
