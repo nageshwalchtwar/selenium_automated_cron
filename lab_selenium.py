@@ -5,6 +5,9 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.core.utils import ChromeType
+from selenium.webdriver.chrome.service import Service
+
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoAlertPresentException, UnexpectedAlertPresentException, NoSuchElementException
 from selenium.webdriver.chrome.options import Options as ChromeOptions
@@ -40,11 +43,23 @@ def update_timestamps(new_timestamp):
 load_dotenv()
 total = 0
  # Set webdriver options
-options = ChromeOptions()
 
-# Create webdriver with options from above
-driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+chrome_service = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
 
+chrome_options = Options()
+options = [
+    "--headless",
+    "--disable-gpu",
+    "--window-size=1920,1200",
+    "--ignore-certificate-errors",
+    "--disable-extensions",
+    "--no-sandbox",
+    "--disable-dev-shm-usage"
+]
+for option in options:
+    chrome_options.add_argument(option)
+
+driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 # Load the updated YAML file
 with open('lab_data.yaml', 'r') as file:
     actions = yaml.safe_load(file)
