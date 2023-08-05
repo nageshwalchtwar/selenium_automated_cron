@@ -158,7 +158,7 @@ def perform_action(element):
     if action == 'input':
         web_element.send_keys(value)
     elif action == 'click':
-        # time.sleep(5) nagesh changes
+        time.sleep(5) 
         # if(len(list(web_element)) >= 3):
         #     web_element[2].click()
         # else:
@@ -207,6 +207,7 @@ def perform_action(element):
 # Load the website
 driver.get('https://remote-labs.in')
 # Perform the actions specified in the YAML file
+time.sleep(3)
 for action in actions:
     print(action)
     if total <= 1:
