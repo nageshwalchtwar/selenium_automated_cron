@@ -1,38 +1,33 @@
-name: Selenium Workflow
+name: Run Selenium On GitHub Action
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
-  build:
+  scrape:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checking out repo
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
+      - name: Setting up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install selenium pyyaml opencv-python pillow imagehash python-dotenv scikit-image
+      - name: Installing package list
+        run: apt list --installed
 
-      
-    - name: Install Google Chrome 
+      - name: Removing previous chrome instances on runner 
+        run: sudo apt purge google-chrome-stable
 
-      run: |
+      - name: Installing all necessary packages
+        run: |
+          pip install chromedriver-autoinstaller selenium pyvirtualdisplay pyyaml opencv-python pillow imagehash python-dotenv scikit-image
 
-              chmod +x ./scripts/InstallChrome.sh
+      - name: Install xvfb
+        run: sudo apt-get install xvfb
 
-                          ./scripts/InstallChrome.sh 
-      continue-on-error: true
-
-    - name: Run Selenium script
-      run: |
-        python lab_selenium.py
+      - name: Running the Python script
+        run: python lab_selenium.py
