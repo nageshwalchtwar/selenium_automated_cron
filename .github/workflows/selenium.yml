@@ -25,12 +25,12 @@ jobs:
 
       - name: Installing all necessary packages
         run: |
-          pip install selenium pyyaml opencv-python pillow imagehash python-dotenv scikit-image webdriver-manager
+          pip install selenium pyyaml opencv-python pillow imagehash python-dotenv scikit-image webdriver-manager matplotlib
 
       - name: Install xvfb
         run: sudo apt-get install xvfb
 
-      - name: Running the Python script
-        run: python lab_timing.py
+      # - name: Running the Python script
+      #   run: python lab_timing.py
       - name: Running rod direction
         run: python rod_direction_lab.py
