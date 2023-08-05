@@ -22,10 +22,15 @@ jobs:
         run: sudo apt purge chromium-browser
       - name: Install a new Chromium
         run: sudo apt install -y chromium-browser
-
+      - name: Removing opencv-python
+        run: pip uninstall opencv-python
+        
+      - name: Installing opencv-headless
+        run: pip install opencv-python-headless
+        
       - name: Installing all necessary packages
         run: |
-          pip install selenium pyyaml opencv-python pillow imagehash python-dotenv scikit-image webdriver-manager matplotlib
+          pip install selenium pyyaml pillow imagehash python-dotenv scikit-image webdriver-manager matplotlib
 
       - name: Install xvfb
         run: sudo apt-get install xvfb
