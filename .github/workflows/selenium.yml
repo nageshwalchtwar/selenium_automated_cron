@@ -23,30 +23,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install selenium pyyaml opencv-python pillow imagehash python-dotenv scikit-image
 
-    - name: Install Chrome
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y libnss3
-        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        sudo dpkg -i google-chrome-stable_current_amd64.deb
-      continue-on-error: true
-
-    - name: Get Chrome version
-      id: chrome_version
-      run: |
-        CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
-        echo "Chrome version: $CHROME_VERSION"
-        echo "##vso[task.setvariable variable=CHROME_VERSION]$CHROME_VERSION"
       
-    - name: Download compatible ChromeDriver
+    - name: Install Google Chrome 
+
       run: |
-        LATEST_CHROMEDRIVER=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
-        CHROME_VERSION=${{ steps.chrome_version.outputs.CHROME_VERSION }}
-        CHROMEDRIVER_VERSION=$(curl -sS "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
-        wget -q "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip" -O chromedriver.zip
-        unzip chromedriver.zip
-        chmod +x chromedriver
-        sudo mv chromedriver /usr/local/bin/
+
+              chmod +x ./scripts/InstallChrome.sh
+
+                          ./scripts/InstallChrome.sh 
       continue-on-error: true
 
     - name: Run Selenium script
