@@ -5,7 +5,7 @@ import lab_selenium
 import logging
 import os
 
-logging.basicConfig(filename='/lab_latency.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
+logging.basicConfig(filename='lab_latency.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
 arr = lab_selenium.timestamps
 print(arr)
 arr = [datetime.strptime(date_str, '%Y-%m-%d %H:%M:%S') for date_str in arr]
