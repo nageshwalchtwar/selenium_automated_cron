@@ -24,7 +24,7 @@ jobs:
 
       - name: Installing all necessary packages
         run: |
-          pip install chromedriver-autoinstaller selenium pyvirtualdisplay pyyaml opencv-python pillow imagehash python-dotenv scikit-image
+          pip install chromedriver-autoinstaller selenium pyvirtualdisplay pyyaml opencv-python pillow imagehash webdriver_manager python-dotenv scikit-image
 
       - name: Install xvfb
         run: sudo apt-get install xvfb
