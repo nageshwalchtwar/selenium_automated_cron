@@ -39,22 +39,9 @@ load_dotenv()
 total = 0
  # Set webdriver options
 options = ChromeOptions()
-options.headless = self.headless_mode
-
-# Add options arguments to webdriver
-options.add_argument("--log-level=3")
-options.add_argument("--start-maximized")
-options.add_argument('--no-sandbox')
-options.add_argument('--disable-dev-shm-usage')
-options.add_experimental_option("prefs", {
-"download.default_directory": f'r"D:\\Users\\{os.getlogin()}\\Downloads\\"',
-"download.prompt_for_download": False,
-"download.directory_upgrade": True,
-"safebrowsing.enabled": True
-})
 
 # Create webdriver with options from above
-driver_for_chrome = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
 # Load the updated YAML file
 with open('lab_data.yaml', 'r') as file:
