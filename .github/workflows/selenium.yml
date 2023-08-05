@@ -31,4 +31,6 @@ jobs:
         run: sudo apt-get install xvfb
 
       - name: Running the Python script
-        run: python lab_selenium.py
+        run: python lab_timing.py
+      - name: Running rod direction
+        run: python rod_direction_lab.py
