@@ -188,7 +188,7 @@ with open(log_file_path,'r') as file:
     log_data=file.read()
 matches= re.findall(pattern,log_data)
 for match in matches:
-    timestamp, latency=match
+   latency=match
 print(match)
 
 #importing the direction log data from log files
@@ -230,9 +230,8 @@ for i in l:
 
 if direction_check[0] == direction_check[1] == "still":
     send_email('nageshwalchtwar257@gmail.com', '''Hi, I'm Vanishing Rod,
-                                                Experiment is having some issue,
-                                                The Rods are still or Video stream not showing during the process. {dir_log_ent}
-                                                kindly check the experiment 
+                                                The experiment is having some issues,
+                                                The Rods are still or Video stream not showing during the process. {dir_log_ent}. Kindly check the experiment 
                                                     - Maintainance Team ( Vanishing Rod ) '''.format(dir_log_ent=dir_log_ent), 'mail sent')
 elif direction_check[0] == "still" and direction_check[1] == "up": 
     send_email('nageshwalchtwar257@gmail.com', ''' Hi, I'm Vanishing Rod,
@@ -242,13 +241,12 @@ elif direction_check[0] == "still" and direction_check[1] == "up":
                                                     - Maintainance Team ( Vanishing Rod )''', 'mail sent')
 elif direction_check[0] == "up" and direction_check[1] == "down":
     send_email('nageshwalchtwar257@gmail.com', ''' Hi, I'm Vanishing Rod,
-                                                Experiment is having some issue,
-                                                Direction change and threads are wound up.
+                                                Experiment is having some issue, Direction change and threads are wound up.
                                                 kindly check the experiment 
                                                     - Maintainance Team ( Vanishing Rod )''', 'mail sent')
 elif direction_check[0] == "down" and direction_check[1] == "up":
     logging.info('Works successfully\n')
-    send_email('nageshwalchtwar257@gmail.com', '''Hi,I'm Vanishing Rod, experiment working fine. The Timestamp and latency is {match}!
+    send_email('nageshwalchtwar257@gmail.com', '''Hi,I'm Vanishing Rod, experiment working fine. The latency (seconds) is {match}!
                 - Maintainance Team ( Vanishing Rod ) '''.format(match=match) , 'mail sent')
 
 
