@@ -244,7 +244,7 @@ elif direction_check[0] == "up" and direction_check[1] == "down":
                                                 Experiment is having some issue, Direction change and threads are wound up.
                                                 kindly check the experiment 
                                                     - Maintainance Team ( Vanishing Rod )''', 'mail sent')
-elif direction_check[0] == "down" and direction_check[1] == "up":
+elif direction_check[0] == "down" and direction_check[1] == "up" or direction_check[1]=="still":
     logging.info('Works successfully\n')
     send_email('nageshwalchtwar257@gmail.com', '''Hi,I'm Vanishing Rod, experiment working fine. The latency (seconds) is {match}!
                 - Maintainance Team ( Vanishing Rod ) '''.format(match=match) , 'mail sent')
