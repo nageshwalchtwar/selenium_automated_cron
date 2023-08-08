@@ -1,11 +1,11 @@
 name: Run Selenium On GitHub Action
 
-on:
-  schedule:
-    - cron: '30 * * * *' 
-
 # on:
-#   workflow_dispatch:
+#   schedule:
+#     - cron: '30 * * * *' 
+
+on:
+  workflow_dispatch:
 
 jobs:
   scrape:
@@ -41,6 +41,10 @@ jobs:
 
       - name: Start Xvfb
         run: Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+      - name: Making lab_latency & direction file writable to github workflow
+        run: |
+          chmod +w lab_latency.log
+          chmod +w lab_direction.log
 
       - name: Running the Timing script
         run: python lab_timing.py
