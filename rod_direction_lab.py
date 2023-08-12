@@ -57,8 +57,7 @@ def send_email(person, body, email_subject):
     # Set the email parameters
     msg['Subject'] = 'RTL - Maintainance update'
     msg['From'] = email_sender
-    msg['To'] = person
-
+    msg['To'] = ', '.join(recipients)  # Join the list of recipients
     # Send the email
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL('smtp.gmail.com', context=context) as smtp:
@@ -229,24 +228,28 @@ for i in l:
         logging.warning('Movement: Still\n')
 
 if direction_check[0] == direction_check[1] == "still":
-    send_email('nageshwalchtwar257@gmail.com', '''Hi, I'm Vanishing Rod,
+    recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
+    send_email(recipients, '''Hi, I'm Vanishing Rod,
                                                 The experiment is having some issues,
                                                 The Rods are still or Video stream not showing during the process. {dir_log_ent}. Kindly check the experiment 
                                                     - Maintainance Team ( Vanishing Rod ) '''.format(dir_log_ent=dir_log_ent), 'mail sent')
 elif direction_check[0] == "still" and direction_check[1] == "up": 
-    send_email('nageshwalchtwar257@gmail.com', ''' Hi, I'm Vanishing Rod,
+    recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
+    send_email(recipients, ''' Hi, I'm Vanishing Rod,
                                                 Experiment is having some issue,
                                                 Recalibation issue is there. 
                                                 kindly check the experiment 
                                                     - Maintainance Team ( Vanishing Rod )''', 'mail sent')
 elif direction_check[0] == "up" and direction_check[1] == "down":
-    send_email('nageshwalchtwar257@gmail.com', ''' Hi, I'm Vanishing Rod,
+    recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
+    send_email(recipients, ''' Hi, I'm Vanishing Rod,
                                                 Experiment is having some issue, Direction change and threads are wound up.
                                                 kindly check the experiment 
                                                     - Maintainance Team ( Vanishing Rod )''', 'mail sent')
 elif direction_check[0] == "down" and direction_check[1] == "up" or direction_check[1]=="still":
+    recipients = ["theccbussiness@gmail.com"]
     logging.info('Works successfully\n')
-    send_email('nageshwalchtwar257@gmail.com', '''Hi,I'm Vanishing Rod, experiment working fine. The latency (seconds) is {match}!
+    send_email(recipients, '''Hi,I'm Vanishing Rod, experiment working fine. The latency (seconds) is {match}!
                 - Maintainance Team ( Vanishing Rod ) '''.format(match=match) , 'mail sent')
 
 
