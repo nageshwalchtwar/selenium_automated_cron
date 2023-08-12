@@ -19,11 +19,7 @@
   action: handle_prompt
   prompts:
   - prompt_text: Experiment is currently offline
-    email_recipients:
-      - nageshwalchtwar257@gmail.com
-      - vedant.nipane@students.iiit.ac.in
-      - rishabh.agrawal@students.iiit.ac.in
-      - abhinav.marri@research.iiit.ac.in
+    email_recipients: nageshwalchtwar257@gmail.com ,vedant.nipane@students.iiit.ac.in , rishabh.agrawal@students.iiit.ac.in ,abhinav.marri@research.iiit.ac.in
       
     email_subject: Experiment Offline ( VR )
   - prompt_text: Experiment is currently in use
