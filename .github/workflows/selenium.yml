@@ -4,8 +4,8 @@ name: Run Selenium On GitHub Action
 #   schedule:
 #     - cron: '0 * * * *' 
 
-# on:
-#   workflow_dispatch:
+on:
+  workflow_dispatch:
 
 jobs:
   scrape:
