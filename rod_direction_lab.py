@@ -230,8 +230,7 @@ for i in l:
 if direction_check[0] == direction_check[1] == "still":
     recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
     send_email(recipients, '''Hi, I'm Vanishing Rod,
-                                                The experiment is having some issues,
-                                                The Rods are still or Video stream not showing during the process. {dir_log_ent}. Kindly check the experiment 
+                                                The experiment is having some issues, the Rods are still or the Video stream not showing during the process. Kindly check the experiment 
                                                     - Maintainance Team ( Vanishing Rod ) '''.format(dir_log_ent=dir_log_ent), 'mail sent')
 elif direction_check[0] == "still" and direction_check[1] == "up": 
     recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
