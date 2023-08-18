@@ -44,6 +44,11 @@ jobs:
 
       - name: Start Xvfb
         run: Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+
+      - name: Set up ChromeDriver
+        uses: nanasess/setup-chrome@v1
+        with:
+          version: '116.0.5845.96'
         
       - name: Making lab_latency & direction file writable to github workflow
         run:  chmod +w lab_latency.log
