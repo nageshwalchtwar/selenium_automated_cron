@@ -20,16 +20,15 @@ jobs:
         with:
           python-version: '3.9'
 
-      # - name: Removing previous chrome instances on runner 
-      #   run: sudo apt purge google-chrome-stable
-      # - name: Remove default Chromium
-      #   run: sudo apt purge chromium-browser
-      # - name: Install a new Chromium
-      #   run: sudo apt install -y chromium-browser
-      - name: Update Chromium browser
-        run: |
-          sudo apt-get update
-          sudo apt-get upgrade -y chromium-browser
+      - name: Removing previous chrome instances on runner 
+        run: sudo apt purge google-chrome-stable
+        
+      - name: Remove default Chromium
+        run: sudo apt purge chromium-browser
+        
+      - name: Install a new Chromium
+        run: sudo apt install -y chromium-browser
+        
       - name: Removing opencv-python
         run: pip uninstall opencv-python
         
@@ -38,7 +37,7 @@ jobs:
         
       - name: Installing all necessary packages
         run: |
-          pip install selenium pyyaml pillow imagehash python-dotenv scikit-image webdriver-manager matplotlib
+          pip install selenium pyyaml pillow imagehash python-dotenv scikit-image matplotlib
 
       - name: Install xvfb
         run: sudo apt-get install xvfb
