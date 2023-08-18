@@ -73,8 +73,9 @@ except ValueError:
         latest_chromedriver_version_url = "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"
         latest_chromedriver_version = urllib.request.urlopen(latest_chromedriver_version_url).read().decode('utf-8')
         service = Service(ChromeDriverManager(version=latest_chromedriver_version).install())
+        driver_executable_path = service.path
 driver = webdriver.Chrome(options=chrome_options, driver_executable_path=driver_executable_path)
-driver_executable_path = service.path
+
 
 # Load the updated YAML file
 with open('lab_data.yaml', 'r') as file:
