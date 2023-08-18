@@ -29,6 +29,20 @@ jobs:
       - name: Install a new Chromium
         run: sudo apt install -y chromium-browser
         
+      - name: Install Chrome
+        run: |
+          wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/116.0.5845.96/linux64/chrome-linux64.zip
+          unzip chrome-linux64.zip
+          sudo mv chrome-linux64 /opt/google/chrome
+          sudo ln -s /opt/google/chrome/chrome /usr/bin/chrome
+
+      - name: Install ChromeDriver
+        run: |
+          wget -O chromedriver.zip https://chromedriver.storage.googleapis.com/VERSION/chromedriver_linux64.zip
+          unzip chromedriver.zip
+          chmod +x chromedriver
+          sudo mv chromedriver /usr/local/bin/
+        
       - name: Removing opencv-python
         run: pip uninstall opencv-python
         
