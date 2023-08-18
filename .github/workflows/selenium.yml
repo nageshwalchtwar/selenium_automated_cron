@@ -20,10 +20,10 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Removing previous chrome instances on runner 
-        run: sudo apt purge google-chrome-stable
-      - name: Remove default Chromium
-        run: sudo apt purge chromium-browser
+      # - name: Removing previous chrome instances on runner 
+      #   run: sudo apt purge google-chrome-stable
+      # - name: Remove default Chromium
+      #   run: sudo apt purge chromium-browser
       - name: Install a new Chromium
         run: sudo apt install -y chromium-browser
       - name: Removing opencv-python
