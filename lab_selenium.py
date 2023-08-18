@@ -45,25 +45,6 @@ load_dotenv()
 total = 0
  # Set webdriver options
 
-# chrome_service = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
-
-# chrome_options = Options()
-# options = [
-#     "--headless",
-#     "--disable-gpu",
-#     "--window-size=1920,1200",
-#     "--ignore-certificate-errors",
-#     "--disable-extensions",
-#     "--no-sandbox",
-#     "--disable-dev-shm-usage"
-# ]
-# for option in options:
-#     chrome_options.add_argument(option)
-
-# driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
-
-
-# nagesh chrome driver handler 
 chrome_service = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
 
 chrome_options = Options()
@@ -79,13 +60,10 @@ options = [
 for option in options:
     chrome_options.add_argument(option)
 
-# Set the desired ChromeDriver version
-desired_chromedriver_version ="115.0.5790.0" # Replace with the version you need
+driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
-# Set up ChromeDriver with the desired version
-chrome_driver_path = ChromeDriverManager(version=desired_chromedriver_version).install()
 
-driver = webdriver.Chrome(executable_path=chrome_driver_path, service=chrome_service, options=chrome_options)
+
 # Load the updated YAML file
 with open('lab_data.yaml', 'r') as file:
     actions = yaml.safe_load(file)
