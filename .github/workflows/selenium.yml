@@ -28,8 +28,8 @@ jobs:
       #   run: sudo apt install -y chromium-browser
       - name: Update Chromium browser
         run: |
-          sudo apt update
-          sudo apt upgrade -y chromium-browser
+          sudo apt-get update
+          sudo apt-get upgrade -y chromium-browser
       - name: Removing opencv-python
         run: pip uninstall opencv-python
         
