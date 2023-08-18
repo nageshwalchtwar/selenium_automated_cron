@@ -60,7 +60,7 @@ options = [
 for option in options:
     chrome_options.add_argument(option)
 
-driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
+driver = webdriver.Chrome(version="115.0.5790.0",service=chrome_service, options=chrome_options)
 # Load the updated YAML file
 with open('lab_data.yaml', 'r') as file:
     actions = yaml.safe_load(file)
