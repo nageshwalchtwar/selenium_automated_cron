@@ -45,36 +45,23 @@ load_dotenv()
 total = 0
  # Set webdriver options
 
-# chrome_service = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+chrome_service = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
 
-# chrome_options = Options()
-# options = [
-#     "--headless",
-#     "--disable-gpu",
-#     "--window-size=1920,1200",
-#     "--ignore-certificate-errors",
-#     "--disable-extensions",
-#     "--no-sandbox",
-#     "--disable-dev-shm-usage"
-# ]
-# for option in options:
-#     chrome_options.add_argument(option)
+chrome_options = Options()
+options = [
+    "--headless",
+    "--disable-gpu",
+    "--window-size=1920,1200",
+    "--ignore-certificate-errors",
+    "--disable-extensions",
+    "--no-sandbox",
+    "--disable-dev-shm-usage"
+]
+for option in options:
+    chrome_options.add_argument(option)
 
-# driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
+driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
-# nagesh updated chrome driver 
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-import urllib.request
-
-try:
-        service = Service(ChromeDriverManager().install())
-except ValueError:
-        latest_chromedriver_version_url = "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"
-        latest_chromedriver_version = urllib.request.urlopen(latest_chromedriver_version_url).read().decode('utf-8')
-        service = Service(ChromeDriverManager(version=latest_chromedriver_version).install())
-driver = webdriver.Chrome(options=chrome_options, driver_executable_path=driver_executable_path)
-driver_executable_path = ChromeDriverManager().install()
 # Load the updated YAML file
 with open('lab_data.yaml', 'r') as file:
     actions = yaml.safe_load(file)
