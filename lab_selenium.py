@@ -70,7 +70,7 @@ with open('lab_data.yaml', 'r') as file:
 def process_video_frames(driver: webdriver.Chrome, video_xpath: str):
     global move
     screenshot_paths = []
-    total_screenshots, interval = 10, 0.5
+    total_screenshots, interval = 10, 1
     video_element = driver.find_element(By.XPATH, video_xpath)
 
     for i in range(total_screenshots):
