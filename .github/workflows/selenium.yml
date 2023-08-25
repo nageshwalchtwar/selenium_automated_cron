@@ -20,28 +20,28 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Removing previous chrome instances on runner 
-        run: sudo apt purge google-chrome-stable
+      # - name: Removing previous chrome instances on runner 
+      #   run: sudo apt purge google-chrome-stable
         
-      - name: Remove default Chromium
-        run: sudo apt purge chromium-browser
+      # - name: Remove default Chromium
+      #   run: sudo apt purge chromium-browser
         
-      - name: Install a new Chromium
-        run: sudo apt install -y chromium-browser
+      # - name: Install a new Chromium
+      #   run: sudo apt install -y chromium-browser
         
-      - name: Install Chrome
-        run: |
-          wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/116.0.5845.96/linux64/chrome-linux64.zip
-          unzip chrome-linux64.zip -d chrome-dir  
-          sudo mv chrome-dir /opt/google/chrome
-          sudo ln -s /opt/google/chrome/chrome /usr/bin/chrome
+      # - name: Install Chrome
+      #   run: |
+      #     wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/116.0.5845.96/linux64/chrome-linux64.zip
+      #     unzip chrome-linux64.zip -d chrome-dir  
+      #     sudo mv chrome-dir /opt/google/chrome
+      #     sudo ln -s /opt/google/chrome/chrome /usr/bin/chrome
 
-      - name: Install ChromeDriver
-        run: |
-          wget -O chromedriver.zip https://chromedriver.storage.googleapis.com/116.0.5845.96./chromedriver_linux64.zip
-          unzip chromedriver.zip -d chromedriver-dir 
-          chmod +x chromedriver-dir/chromedriver
-          sudo mv chromedriver-dir/chromedriver /usr/local/bin/
+      # - name: Install ChromeDriver
+      #   run: |
+      #     wget -O chromedriver.zip https://chromedriver.storage.googleapis.com/116.0.5845.96./chromedriver_linux64.zip
+      #     unzip chromedriver.zip -d chromedriver-dir 
+      #     chmod +x chromedriver-dir/chromedriver
+      #     sudo mv chromedriver-dir/chromedriver /usr/local/bin/
         
       - name: Removing opencv-python
         run: pip uninstall opencv-python
