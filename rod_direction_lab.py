@@ -122,7 +122,7 @@ def compare_images(image1, image2):
 def compare_ss(f_path):
     print("comparing")
     image_path1 = f_path + 'screenshot_0.png'
-    image_path2 = f_path + 'screenshot_9.png'
+    image_path2 = f_path + 'screenshot_8.png'
 
     image1 = cv2.imread(image_path1)
     image2 = cv2.imread(image_path2)
