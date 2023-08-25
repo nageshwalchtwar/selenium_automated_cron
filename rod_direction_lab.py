@@ -25,6 +25,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 from skimage.metrics import structural_similarity as ssim
 import ss_4_lab
+import apparatus_level
 #logging.basicConfig(filename='app.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
 logging.basicConfig(filename='lab_direction.log', filemode='a',format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
 # Create a logger
@@ -43,7 +44,7 @@ logging.basicConfig(filename='lab_direction.log', filemode='a',format='%(asctime
 
 # # Add the handler to the logger
 # logger.addHandler(handler)
-
+level= apparatus_level.liquid_levels
 load_dotenv()
 ss_paths = ss_4_lab.ss_paths
 print(ss_paths)
@@ -210,6 +211,15 @@ with open(dir_log_path, 'r') as file:
 dir_log_ent = dir_log_data[-1].strip() if dir_log_data else None
 print(dir_log_ent)
 
+# beaker liquid
+liquid_level_values = list(level.values())
+print("Liquid level of oil and water is approx. : " ,liquid_level_values)
+lev=0
+for beaker, level in level.items():
+    if level < 58:
+        lev=1
+    else:
+        lev=0
 
 
 l = ["moving_down_lab/","moving_up_lab/"]
@@ -227,11 +237,11 @@ for i in l:
     elif movement_code == "still":
         logging.warning('Movement: Still\n')
 
-if direction_check[0] == direction_check[1] == "still":
+if direction_check[0] == direction_check[1] == "still" or lev==1:
     recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
     send_email(recipients, '''Hi, I'm Vanishing Rod,
-                                                The experiment is having some issues, the Rods are still or the Video stream not showing during the process. Kindly check the experiment 
-                                                    - Maintainance Team ( Vanishing Rod ) '''.format(dir_log_ent=dir_log_ent), 'mail sent')
+                                                The experiment is having some issues, the Rods are still or the Video stream not showing during the process or liquid level is LOW. {liquid_level_values} Kindly check the experiment 
+                                                    - Maintainance Team ( Vanishing Rod ) '''.format(liquid_level_values=liquid_level_values), 'mail sent')
 elif direction_check[0] == "still" and direction_check[1] == "up": 
     recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
     send_email(recipients, ''' Hi, I'm Vanishing Rod,
