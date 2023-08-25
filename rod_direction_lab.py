@@ -240,8 +240,8 @@ for i in l:
 if direction_check[0] == direction_check[1] == "still" or lev==1:
     recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
     send_email(recipients, '''Hi, I'm Vanishing Rod,
-                                                The experiment is having some issues, the Rods are still or the Video stream not showing during the process or liquid level is LOW. {liquid_level_values} Kindly check the experiment 
-                                                    - Maintainance Team ( Vanishing Rod ) '''.format(liquid_level_values=liquid_level_values), 'mail sent')
+                                                The experiment is having some issues, the Rods are still or the Video stream not showing during the process or liquid level is LOW. Kindly check the experiment 
+                                                    - Maintainance Team ( Vanishing Rod ) '''., 'mail sent')
 elif direction_check[0] == "still" and direction_check[1] == "up": 
     recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
     send_email(recipients, ''' Hi, I'm Vanishing Rod,
