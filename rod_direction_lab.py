@@ -238,12 +238,12 @@ for i in l:
         logging.warning('Movement: Still\n')
 
 if direction_check[0] == direction_check[1] == "still" :
-    recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
+    recipients = ["nageshwalchtwar257@gmail.com"]
     send_email(recipients, '''Hi, I'm Vanishing Rod,
                                                 The experiment is having some issues, the Rods are still or the Video stream not showing during the process or liquid level is LOW. Kindly check the experiment 
                                                     - Maintainance Team ( Vanishing Rod ) ''', 'mail sent')
 elif direction_check[0] == "still" and direction_check[1] == "up": 
-    recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
+    recipients = ["nageshwalchtwar257@gmail.com"]
     send_email(recipients, ''' Hi, I'm Vanishing Rod,
                                                 Experiment is having some issue,
                                                 Recalibation issue is there. 
