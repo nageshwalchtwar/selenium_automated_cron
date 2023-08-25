@@ -41,6 +41,6 @@ def get_liquid_levels(image_path):
     return liquid_levels
 
 
-screenshot_path = "moving_down_lab/screenshot_1.png"
+screenshot_path = "moving_down_lab/screenshot_0.png"
 liquid_levels = get_liquid_levels(screenshot_path)
-print(liquid_levels)
+# print(liquid_levels)
