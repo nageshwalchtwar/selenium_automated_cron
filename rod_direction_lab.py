@@ -25,7 +25,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 from skimage.metrics import structural_similarity as ssim
 import ss_4_lab
-# import apparatus_level
+import apparatus_level
 #logging.basicConfig(filename='app.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s')
 logging.basicConfig(filename='lab_direction.log', filemode='a',format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
 # Create a logger
@@ -44,7 +44,7 @@ logging.basicConfig(filename='lab_direction.log', filemode='a',format='%(asctime
 
 # # Add the handler to the logger
 # logger.addHandler(handler)
-# level= apparatus_level.liquid_levels
+level= apparatus_level.liquid_levels
 load_dotenv()
 ss_paths = ss_4_lab.ss_paths
 print(ss_paths)
@@ -214,12 +214,12 @@ print(dir_log_ent)
 # beaker liquid
 # liquid_level_values = list(level.values())
 # print("Liquid level of oil and water is approx. : " ,liquid_level_values)
-# lev=0
-# for beaker, level in level.items():
-#     if level < 58:
-#         lev=1
-#     else:
-#         lev=0
+lev=0
+for beaker, level in level.items():
+    if level < 90:
+        lev=1
+    else:
+        lev=0
 
 
 l = ["moving_down_lab/","moving_up_lab/"]
@@ -237,7 +237,7 @@ for i in l:
     elif movement_code == "still":
         logging.warning('Movement: Still\n')
 
-if direction_check[0] == direction_check[1] == "still" :
+if direction_check[0] == direction_check[1] == "still" or lev==1 :
     recipients = ["nageshwalchtwar257@gmail.com"]
     send_email(recipients, '''Hi, I'm Vanishing Rod,
                                                 The experiment is having some issues, the Rods are still or the Video stream not showing during the process or liquid level is LOW. Kindly check the experiment 
