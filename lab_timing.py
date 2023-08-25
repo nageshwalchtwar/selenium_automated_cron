@@ -19,7 +19,7 @@ print("the moving down : ",moving_down)
 
 
 start_index = 0
-end_index = 8
+end_index = 9
 
 def check_latency(screenshot_paths):
     still_count = 0
@@ -89,9 +89,14 @@ def check_latency(screenshot_paths):
 
 
 
-    latency = (timestamp1 - moving_down).total_seconds()
-    logging.info("Latency: %f seconds", latency)
-
+    try:
+        latency = (timestamp1 - moving_down).total_seconds()
+        print("Timestamp1 & Moving_down timestamp is : ",timestamp1,moving_down)
+        print("Latency is logging into the log file . . . ")
+        logging.info("Latency: %f seconds", latency)
+        print("Successfully logged to file : lab_latency.log")
+    except:
+        print("Error in logging the latency!")
 
 screenshot_paths = []
 
