@@ -44,7 +44,7 @@ logging.basicConfig(filename='lab_direction.log', filemode='a',format='%(asctime
 
 # # Add the handler to the logger
 # logger.addHandler(handler)
-level= apparatus_level.liquid_levels
+level= apparatus_level.get_liquid_levels
 load_dotenv()
 ss_paths = ss_4_lab.ss_paths
 print(ss_paths)
