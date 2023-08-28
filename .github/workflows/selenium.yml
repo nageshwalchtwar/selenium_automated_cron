@@ -1,17 +1,17 @@
 name: Run Selenium On GitHub Action
 
-# on:
-#   schedule:
-#     - cron: '30 * * * *' 
+on:
+  schedule:
+    - cron: '30 * * * *' 
 
 # on:
 #   workflow_dispatch:
 
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+# on:
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:
   
 jobs:
   scrape:
