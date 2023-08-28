@@ -113,7 +113,7 @@ def handle_prompt(prompt_text, email_recipient=None, email_subject=None):
     if prompt_text == "Experiment is currently offline":
         body = "Experiment is currently offline"
         if email_recipient and email_subject:
-            recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
+            recipients = ["nageshwalchtwar257@gmail.com"]
             send_email(recipients , body, email_subject)
         try:
             driver.switch_to.alert.accept()
