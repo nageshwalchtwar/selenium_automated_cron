@@ -5,7 +5,11 @@ name: Run Selenium On GitHub Action
 #     - cron: '0 * * * *' 
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '50 16 * * *'
+
+# on:
+#   workflow_dispatch:
 
 # on:
 #   push:
