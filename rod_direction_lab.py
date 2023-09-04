@@ -167,10 +167,13 @@ def compare_ss(f_path):
         for association in associations:
             dist = association[1][1] - association[0][1]
             distances.append(dist)
-        if distances[0] < 0:
-            return "up"
+        if distances:
+            if distances[0] < 0:
+                return "up"
+            else:
+                return "down"
         else:
-            return "down"
+            return "Distances list is empty."
 
 
 #importing data from the log files
