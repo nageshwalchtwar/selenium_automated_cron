@@ -258,7 +258,7 @@ elif direction_check[0] == "up" and direction_check[1] == "down":
                                                 Experiment is having some issue, Direction change and threads are wound up.
                                                 kindly check the experiment 
                                                     - Maintainance Team ( Vanishing Rod )''', 'mail sent')
-elif direction_check[0] == "down" and direction_check[1] == "up" or direction_check[1]=="still":
+elif direction_check[0] == "down" and direction_check[1] == "up" or direction_check[1]=="still" or direction_check[0]=="Distances list is empty":
     recipients = ["theccbussiness@gmail.com"]
     logging.info('Works successfully\n')
     send_email(recipients, '''Hi,I'm Vanishing Rod, experiment working fine. The latency (seconds) is {match}!
