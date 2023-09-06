@@ -4,7 +4,7 @@ from datetime import datetime
 import lab_selenium
 import logging
 import os
-
+import request 
 logging.basicConfig(filename='lab_latency.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
 arr = lab_selenium.timestamps
 print(arr)
@@ -114,3 +114,16 @@ for i in range(start_index, end_index + 1):
 # Print the generated screenshot paths
 print(screenshot_paths)
 check_latency(screenshot_paths)
+status = "VR is Working!"  # Replace with your actual status
+url = "https://nageshwalchtwar.github.io/selenium-script-status/script-status"
+
+payload = {
+    "status": status
+}
+
+response = requests.post(url, json=payload)
+
+if response.status_code == 200:
+    print("Status updated successfully")
+else:
+    print("Failed to update status")
