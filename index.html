@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Script Status</title>
+    <meta http-equiv="refresh" content="7200"> <!-- Refresh every 2 hours (2 hours * 3600 seconds) -->
+</head>
+<body>
+    <h1>Status: <span id="Remote Labs Experiment status">Loading...</span></h1>
+    
+    <script>
+        // Fetch status from your script's endpoint
+        async function getStatus() {
+            try {
+                const response = await fetch('/script-status');
+                const data = await response.json();
+                document.getElementById('status').textContent = data.status;
+            } catch (error) {
+                console.error(error);
+                document.getElementById('status').textContent = 'Error';
+            }
+        }
+        
+        getStatus(); // Call initially
+        setInterval(getStatus, 7200000); // Refresh every 2 hours
+    </script>
+</body>
+</html>
