@@ -11,7 +11,7 @@
         // Fetch status from your script's endpoint
         async function getStatus() {
             try {
-                const response = await fetch('/script-status');
+                const response = await fetch('/selenium_automated_cron');
                 const data = await response.json();
                 document.getElementById('status').textContent = data.status;
             } catch (error) {
