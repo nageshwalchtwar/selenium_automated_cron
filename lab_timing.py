@@ -95,8 +95,11 @@ def check_latency(screenshot_paths):
         print("Latency is logging into the log file . . . ")
         logging.info("Latency: %f seconds", latency)
         print("Successfully logged to file : lab_latency.log")
+        global status
+        status = "VR is Working!" 
     except:
         print("Error in logging the latency!")
+        status = "VR is not working"
 
 screenshot_paths = []
 
@@ -114,8 +117,8 @@ for i in range(start_index, end_index + 1):
 # Print the generated screenshot paths
 print(screenshot_paths)
 check_latency(screenshot_paths)
-status = "VR is Working!"  # Replace with your actual status
-url = "https://nageshwalchtwar.github.io/selenium-script-status/script-status"
+ # Replace with your actual status
+url = "https://nageshwalchtwar.github.io/selenium_automated_cron/"
 
 payload = {
     "status": status
