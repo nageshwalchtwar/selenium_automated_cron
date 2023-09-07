@@ -262,7 +262,7 @@ elif direction_check[0] == "up" and direction_check[1] == "down":
                                                     - Maintainance Team ( Vanishing Rod )''', 'mail sent')
 elif direction_check[0] == "down" and direction_check[1] == "up" or direction_check[1]=="still" or direction_check[0]=="Distances list is empty":
     recipients = ["theccbussiness@gmail.com"]
-    status = "Just checking the Working"
+    status = "Working"
     logging.info('Works successfully\n')
     send_email(recipients, '''Hi,I'm Vanishing Rod, experiment working fine. The latency (seconds) is {match}!
                 - Maintainance Team ( Vanishing Rod ) '''.format(match=match) , 'mail sent')
