@@ -72,7 +72,11 @@ jobs:
       #   uses: nanasess/setup-chrome@v1
       #   with:
       #     version: '116.0.5845.96'
-        
+      - name: Configure Git
+        run: |
+          git config --global user.name "Nagesh Walchatwar"
+          git config --global user.email "nageshw.etc19@stvincentnngp.edu.in"
+          
       - name: Making lab_latency & direction file writable to github workflow
         run:  chmod +w lab_latency.log
 
