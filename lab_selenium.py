@@ -219,7 +219,7 @@ for action in actions:
         total += 1
         status = "Working"
     else:
-        status = "Not Working"
+        status = "Not Working or OFFLINE"
     perform_action(action)
     import json
 
