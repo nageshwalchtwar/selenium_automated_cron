@@ -208,10 +208,7 @@ def perform_action(element):
             except NoAlertPresentException:
                 break  # Break out of the outer loop if no alert is present
 
-# Add, commit, and push the changes
-subprocess.run(["git", "add", "data.json"])
-subprocess.run(["git", "commit", "-m", "Update data.json"])
-subprocess.run(["git", "push", "origin", "main"]) 
+
 # Load the website
 driver.get('https://remote-labs.in')
 # Perform the actions specified in the YAML file
@@ -232,5 +229,9 @@ for action in actions:
 
     with open('data.json', 'w') as json_file:
         json.dump(data, json_file)
+    # Add, commit, and push the changes
+    subprocess.run(["git", "add", "data.json"])
+    subprocess.run(["git", "commit", "-m", "Update data.json"])
+    subprocess.run(["git", "push", "origin", "main"]) 
 
     time.sleep(2)
