@@ -39,7 +39,7 @@ def update_timestamps(new_timestamp):
     global timestamps
     timestamps.append(new_timestamp)
 
-
+global status
 
 load_dotenv()
 total = 0
@@ -112,6 +112,7 @@ def send_email(person, body, email_subject):
 def handle_prompt(prompt_text, email_recipient=None, email_subject=None):
     if prompt_text == "Experiment is currently offline":
         body = "Experiment is currently offline"
+        status = "OFFLINE"
         if email_recipient and email_subject:
             recipients = ["nageshwalchtwar257@gmail.com"]
             send_email(recipients , body, email_subject)
@@ -122,6 +123,7 @@ def handle_prompt(prompt_text, email_recipient=None, email_subject=None):
         return True  # Set the flag to True indicating prompt is handled
     elif prompt_text == "Experiment is currently in use":
         driver.switch_to.alert.accept()
+        status = "In Use"
         return True  # Set the flag to True indicating prompt is handled
     return False  # Return False if prompt is not handled
 
@@ -149,6 +151,7 @@ def perform_action(element):
             pass
         # Add more locator strategies if needed
     except NoSuchElementException:
+        status = "Not allowing to ENTER"
         web_element = driver.find_element(By.XPATH, "//*[contains(text(), 'Exit Experiment')]")
         web_element.click()
         # # print(list(web_element))
@@ -205,6 +208,10 @@ def perform_action(element):
             except NoAlertPresentException:
                 break  # Break out of the outer loop if no alert is present
 
+# Add, commit, and push the changes
+subprocess.run(["git", "add", "data.json"])
+subprocess.run(["git", "commit", "-m", "Update data.json"])
+subprocess.run(["git", "push", "origin", "main"]) 
 # Load the website
 driver.get('https://remote-labs.in')
 # Perform the actions specified in the YAML file
@@ -213,5 +220,17 @@ for action in actions:
     print(action)
     if total <= 1:
         total += 1
+        status = "Working"
+    else:
+        status = "Not Working"
     perform_action(action)
+    import json
+
+    data = {
+        "value": status
+    }
+
+    with open('data.json', 'w') as json_file:
+        json.dump(data, json_file)
+
     time.sleep(2)
