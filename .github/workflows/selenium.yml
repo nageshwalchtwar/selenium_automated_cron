@@ -77,11 +77,11 @@ jobs:
           git config --global user.name "Nagesh Walchatwar"
           git config --global user.email "nageshw.etc19@stvincentnngp.edu.in"
           
-      # - name: Making lab_latency & direction file writable to github workflow
-      #   run:  chmod +w lab_latency.log
+      - name: Making lab_latency & direction file writable to github workflow
+        run:  chmod +w lab_latency.log
 
-      # - name: Running the Timing script
-      #   run: python lab_timing.py
+      - name: Running the Timing script
+        run: python lab_timing.py
         
       - name: Running rod direction
         run: python rod_direction_lab.py
