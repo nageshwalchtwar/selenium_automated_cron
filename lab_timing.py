@@ -118,15 +118,16 @@ for i in range(start_index, end_index + 1):
 print(screenshot_paths)
 check_latency(screenshot_paths)
  # Replace with your actual status
-url = "https://nageshwalchtwar.github.io/selenium_automated_cron/"
+import json
 
-payload = {
-    "status": status
+data = {
+    "value": "Your data here"
 }
 
-response = requests.post(url, json=payload)
+with open('data.json', 'w') as json_file:
+    json.dump(data, json_file)
 
-if response.status_code == 200:
-    print("Status updated successfully")
-else:
-    print("Failed to update status")
+# Add, commit, and push the changes
+subprocess.run(["git", "add", "data.json"])
+subprocess.run(["git", "commit", "-m", "Update data.json"])
+subprocess.run(["git", "push", "origin", "main"]) 
