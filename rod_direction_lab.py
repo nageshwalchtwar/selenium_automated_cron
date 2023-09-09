@@ -272,7 +272,7 @@ elif direction_check[0] == "down" and direction_check[1] == "up" or direction_ch
 
 print(direction_check)
 
-
+global status 
 import json
 
 data = {
