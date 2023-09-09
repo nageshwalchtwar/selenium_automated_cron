@@ -241,8 +241,7 @@ for i in l:
         logging.warning('Movement: Still\n')
 
 if direction_check[0] == direction_check[1] == "still" :
-    global status
-    status = "Not Working"
+
     recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
     send_email(recipients, '''Hi, I'm Vanishing Rod,
                                                 The experiment is having some issues, the Rods are still or the Video stream not showing during the process or liquid level is LOW. Kindly check the experiment 
@@ -262,7 +261,6 @@ elif direction_check[0] == "up" and direction_check[1] == "down":
                                                     - Maintainance Team ( Vanishing Rod )''', 'mail sent')
 elif direction_check[0] == "down" and direction_check[1] == "up" or direction_check[1]=="still" or direction_check[0]=="Distances list is empty":
     recipients = ["theccbussiness@gmail.com"]
-    status = "Working"
     logging.info('Works successfully\n')
     send_email(recipients, '''Hi,I'm Vanishing Rod, experiment working fine. The latency (seconds) is {match}!
                 - Maintainance Team ( Vanishing Rod ) '''.format(match=match) , 'mail sent')
