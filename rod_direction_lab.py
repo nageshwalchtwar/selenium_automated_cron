@@ -272,20 +272,20 @@ elif direction_check[0] == "down" and direction_check[1] == "up" or direction_ch
 
 print(direction_check)
 
-global status 
-import json
+# global status 
+# import json
 
-data = {
-    "value": status
-}
+# data = {
+#     "value": status
+# }
 
-with open('data.json', 'w') as json_file:
-    json.dump(data, json_file)
+# with open('data.json', 'w') as json_file:
+#     json.dump(data, json_file)
 
-# Add, commit, and push the changes
-subprocess.run(["git", "add", "data.json"])
-subprocess.run(["git", "commit", "-m", "Update data.json"])
-subprocess.run(["git", "push", "origin", "main"]) 
+# # Add, commit, and push the changes
+# subprocess.run(["git", "add", "data.json"])
+# subprocess.run(["git", "commit", "-m", "Update data.json"])
+# subprocess.run(["git", "push", "origin", "main"]) 
 
 
 
