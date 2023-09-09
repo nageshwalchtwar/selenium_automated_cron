@@ -213,6 +213,7 @@ def perform_action(element):
 driver.get('https://remote-labs.in')
 # Perform the actions specified in the YAML file
 time.sleep(3)
+import json
 for action in actions:
     print(action)
     if total <= 1:
