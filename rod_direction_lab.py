@@ -243,6 +243,7 @@ for i in l:
         logging.warning('Movement: Still\n')
 
 if direction_check[0] == direction_check[1] == "still" :
+    global status 
     status = "Not Working of OFFLINE"
 
     recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
@@ -274,7 +275,7 @@ elif direction_check[0] == "down" and direction_check[1] == "up" or direction_ch
 
 print(direction_check)
 
-
+global status
 import json
 
 data = {
