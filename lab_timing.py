@@ -105,8 +105,8 @@ def check_latency(screenshot_paths):
             json.dump(data, json_file)
 
         # Add, commit, and push the changes
-        subprocess.run(["git", "add", "data.json"])
-        subprocess.run(["git", "commit", "-m", "Update data.json"])
+        subprocess.run(["git", "add", "latency.json"])
+        subprocess.run(["git", "commit", "-m", "Update latency.json"])
         subprocess.run(["git", "push", "origin", "main"]) 
     except:
         print("Error in logging the latency!")
