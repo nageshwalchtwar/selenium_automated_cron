@@ -256,7 +256,7 @@ elif direction_check[0] == "still" and direction_check[1] == "up":
                                                 kindly check the experiment 
                                                     - Maintainance Team ( Vanishing Rod )''', 'mail sent')
 elif direction_check[0] == "up" and direction_check[1] == "down":
-    status = "Not working/threads wound up (reverse)
+    status = "Not working/threads wound up (reverse)"
     recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
     send_email(recipients, ''' Hi, I'm Vanishing Rod,
                                                 Experiment is having some issue, Direction change and threads are wound up.
