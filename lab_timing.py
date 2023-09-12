@@ -95,6 +95,19 @@ def check_latency(screenshot_paths):
         print("Latency is logging into the log file . . . ")
         logging.info("Latency: %f seconds", latency)
         print("Successfully logged to file : lab_latency.log")
+        import json
+
+        data = {
+            "latency": latency
+        }
+
+        with open('latency.json', 'w') as json_file:
+            json.dump(data, json_file)
+
+        # Add, commit, and push the changes
+        subprocess.run(["git", "add", "data.json"])
+        subprocess.run(["git", "commit", "-m", "Update data.json"])
+        subprocess.run(["git", "push", "origin", "main"]) 
     except:
         print("Error in logging the latency!")
 
