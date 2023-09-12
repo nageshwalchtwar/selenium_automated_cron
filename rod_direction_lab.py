@@ -225,7 +225,7 @@ print(dir_log_ent)
 #         lev=1
 #     else:
 #         lev=0
-
+global status 
 
 l = ["moving_down_lab/","moving_up_lab/"]
 direction_check = []
@@ -243,6 +243,7 @@ for i in l:
         logging.warning('Movement: Still\n')
 
 if direction_check[0] == direction_check[1] == "still" :
+    status = "Not working/rods are still"
     recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
     send_email(recipients, '''Hi, I'm Vanishing Rod,
                                                 The experiment is having some issues, the Rods are still or the Video stream not showing during the process or liquid level is LOW. Kindly check the experiment 
@@ -255,12 +256,14 @@ elif direction_check[0] == "still" and direction_check[1] == "up":
                                                 kindly check the experiment 
                                                     - Maintainance Team ( Vanishing Rod )''', 'mail sent')
 elif direction_check[0] == "up" and direction_check[1] == "down":
+    status = "Not working/threads wound up (reverse)
     recipients = ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","rishabh.agrawal@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
     send_email(recipients, ''' Hi, I'm Vanishing Rod,
                                                 Experiment is having some issue, Direction change and threads are wound up.
                                                 kindly check the experiment 
                                                     - Maintainance Team ( Vanishing Rod )''', 'mail sent')
 elif direction_check[0] == "down" and direction_check[1] == "up" or direction_check[1]=="still" or direction_check[0]=="Distances list is empty":
+    status = "Working"
     recipients = ["theccbussiness@gmail.com"]
     logging.info('Works successfully\n')
     send_email(recipients, '''Hi,I'm Vanishing Rod, experiment working fine. The latency (seconds) is {match}!
@@ -272,19 +275,19 @@ elif direction_check[0] == "down" and direction_check[1] == "up" or direction_ch
 print(direction_check)
 
 
-# import json
+import json
 
-# data = {
-#     "value": status
-# }
+data = {
+    "value": status
+}
 
-# with open('data.json', 'w') as json_file:
-#     json.dump(data, json_file)
+with open('data.json', 'w') as json_file:
+    json.dump(data, json_file)
 
-# # Add, commit, and push the changes
-# subprocess.run(["git", "add", "data.json"])
-# subprocess.run(["git", "commit", "-m", "Update data.json"])
-# subprocess.run(["git", "push", "origin", "main"]) 
+# Add, commit, and push the changes
+subprocess.run(["git", "add", "data.json"])
+subprocess.run(["git", "commit", "-m", "Update data.json"])
+subprocess.run(["git", "push", "origin", "main"]) 
 
 
 
