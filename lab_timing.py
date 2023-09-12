@@ -5,6 +5,7 @@ import lab_selenium
 import logging
 import os
 import requests
+import json
 logging.basicConfig(filename='lab_latency.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
 arr = lab_selenium.timestamps
 print(arr)
@@ -95,7 +96,7 @@ def check_latency(screenshot_paths):
         print("Latency is logging into the log file . . . ")
         logging.info("Latency: %f seconds", latency)
         print("Successfully logged to file : lab_latency.log")
-        import json
+
 
         data = {
             "latency": latency
@@ -108,6 +109,7 @@ def check_latency(screenshot_paths):
         subprocess.run(["git", "add", "latency.json"])
         subprocess.run(["git", "commit", "-m", "Update latency.json"])
         subprocess.run(["git", "push", "origin", "main"]) 
+        print("updated latency json file")
     except:
         print("Error in logging the latency!")
 
