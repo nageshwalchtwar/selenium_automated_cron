@@ -98,12 +98,12 @@ def check_latency(screenshot_paths):
         print("Successfully logged to file : lab_latency.log")
 
 
-        data = {
+        lat = {
             "latency": latency
         }
 
         with open('latency.json', 'w') as json_file:
-            json.dump(data, json_file)
+            json.dump(lat, json_file)
 
         # Add, commit, and push the changes
         subprocess.run(["git", "add", "latency.json"])
