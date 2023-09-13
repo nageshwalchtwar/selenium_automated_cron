@@ -6,6 +6,7 @@ import logging
 import os
 import requests
 import json
+import subprocess
 logging.basicConfig(filename='lab_latency.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
 arr = lab_selenium.timestamps
 print(arr)
