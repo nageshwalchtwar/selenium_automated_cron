@@ -104,7 +104,7 @@ def check_latency(screenshot_paths):
     print("Latency is logging into the log file . . . ")
     logging.info("Latency: %f seconds", latency)
     print("Successfully logged to file : lab_latency.log")
-    late = latency
+    late = latency_str
     lat = {
         "latency": late
     }
