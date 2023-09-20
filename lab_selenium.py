@@ -74,7 +74,8 @@ def process_video_frames(driver: webdriver.Chrome, video_xpath: str):
 
     for i in range(total_screenshots):
         video_screenshot = video_element.screenshot_as_png
-        update_timestamps(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        # update_timestamps(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        update_timestamps(time.time())
 
         if move == 0:
             screenshot_file = f"moving_down_lab/screenshot_{i}.png"
