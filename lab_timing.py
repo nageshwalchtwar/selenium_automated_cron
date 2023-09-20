@@ -93,11 +93,12 @@ def check_latency(screenshot_paths):
         # latency = (timestamp1 - moving_down).total_seconds()
         latency = (timestamp1 - moving_down)
         print(latency)
+        s_latency = round(latency,2)
         print("Timestamp1 & Moving_down timestamp is : ",timestamp1,moving_down)
         print("Latency is logging into the log file . . . ")
         logging.info("Latency: %f seconds", latency)
         print("Successfully logged to file : lab_latency.log")
-        late = latency
+        late = s_latency
         lat = {
             "latency": late
         }
