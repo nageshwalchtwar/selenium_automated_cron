@@ -93,9 +93,6 @@ def check_latency(screenshot_paths):
         # latency = (timestamp1 - moving_down).total_seconds()
         latency = (timestamp1 - moving_down)
         print(latency)
-        latency_ms = latency * 1000
-        latency_str = "{:.6f}".format(latency_ms) 
-        print("latency in miliseconds",latency_str) 
         print("Timestamp1 & Moving_down timestamp is : ",timestamp1,moving_down)
         print("Latency is logging into the log file . . . ")
         logging.info("Latency: %f seconds", latency)
