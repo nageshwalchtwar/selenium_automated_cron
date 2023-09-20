@@ -10,12 +10,13 @@ import subprocess
 logging.basicConfig(filename='lab_latency.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
 arr = lab_selenium.timestamps
 print(arr)
-arr = [datetime.strptime(date_str, '%Y-%m-%d %H:%M:%S') for date_str in arr]
+# arr = [datetime.strptime(date_str, '%Y-%m-%d %H:%M:%S') for date_str in arr]
 
 # moving down click ka timestamp
 
 
-moving_down = datetime.strptime(lab_selenium.d_movement, '%Y-%m-%d %H:%M:%S')
+# moving_down = datetime.strptime(lab_selenium.d_movement, '%Y-%m-%d %H:%M:%S')
+moving_down = lab_selenium.d_movement
 print("the moving down : ",moving_down)
 
 
@@ -92,25 +93,34 @@ def check_latency(screenshot_paths):
 
 
 
-    latency = (timestamp1 - moving_down).total_seconds()
-    print("Timestamp1 & Moving_down timestamp is : ",timestamp1,moving_down)
-    print("Latency is logging into the log file . . . ")
-    logging.info("Latency: %f seconds", latency)
-    print("Successfully logged to file : lab_latency.log")
+    try:
+        # latency = (timestamp1 - moving_down).total_seconds()
+        latency = (timestamp1 - moving_down)
+        print(latency)
+        latency_ms = latency * 1000
+        latency_str = "{:.6f}".format(latency_ms) 
+        print("latency in miliseconds",latency_str) 
+        print("Timestamp1 & Moving_down timestamp is : ",timestamp1,moving_down)
+        print("Latency is logging into the log file . . . ")
+        logging.info("Latency: %f seconds", latency)
+        print("Successfully logged to file : lab_latency.log")
+        late = latency
+        lat = {
+            "latency": late
+        }
     
-    late = latency
-    lat = {
-        "latency": late
-    }
+        with open('latency.json', 'w') as json_file:
+            json.dump(lat, json_file)
     
-    with open('latency.json', 'w') as json_file:
-        json.dump(lat, json_file)
+        # Add, commit, and push the changes
+        subprocess.run(["git", "add", "latency.json"])
+        subprocess.run(["git", "commit", "-m", "Update latency.json"])
+        subprocess.run(["git", "push", "origin", "main"]) 
+        print("updated latency json file")
+    except:
+        print("Error in logging the latency!")
     
-    # Add, commit, and push the changes
-    subprocess.run(["git", "add", "latency.json"])
-    subprocess.run(["git", "commit", "-m", "Update latency.json"])
-    subprocess.run(["git", "push", "origin", "main"]) 
-    print("updated latency json file")
+
 
 
 screenshot_paths = []
