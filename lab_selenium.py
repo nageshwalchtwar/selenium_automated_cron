@@ -29,6 +29,7 @@ import datetime
 import imagehash
 from dotenv import load_dotenv
 from skimage.metrics import structural_similarity as ssim
+import time
 
 # timestamps.py
 move = 0
@@ -165,7 +166,8 @@ def perform_action(element):
         # else:
         if locator_value == "//*[contains(text(), 'Move Down')]" :
             global d_movement
-            d_movement = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            # d_movement = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            d_movement = time.time()
             print("Time d_movement : ",d_movement)
             web_element.click()
         elif locator_value == "Vanishing Rod":
