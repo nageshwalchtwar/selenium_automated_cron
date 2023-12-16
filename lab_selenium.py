@@ -79,9 +79,9 @@ def process_video_frames(driver: webdriver.Chrome, video_xpath: str):
         update_timestamps(time.time())
 
         if move == 0:
-            screenshot_file = f"moving_down_lab/screenshot_{i}.png"
+            screenshot_file = os.path.join(os.getcwd(),f"moving_down_lab/screenshot_{i}.png")
         else:
-            screenshot_file = f"moving_up_lab/screenshot_{i}.png"
+            screenshot_file = os.path.join(os.getcwd(),f"moving_up_lab/screenshot_{i}.png")
 
         with open(screenshot_file, "wb") as file:
             file.write(video_screenshot)
