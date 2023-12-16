@@ -22,7 +22,7 @@ print("the moving down : ",moving_down)
 
 
 start_index = 0
-end_index = 9
+end_index = 8
 
 def check_latency(screenshot_paths):
     still_count = 0
