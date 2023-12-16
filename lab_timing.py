@@ -22,7 +22,7 @@ print("the moving down : ",moving_down)
 
 
 start_index = 0
-end_index = 8
+end_index = 9
 
 def check_latency(screenshot_paths):
     still_count = 0
@@ -31,7 +31,7 @@ def check_latency(screenshot_paths):
     timestamp1 = None  # Initialize timestamp1 to None
 
     # Iterate over consecutive pairs of screenshots
-    for i in range(start_index, end_index, 2):
+    for i in range(start_index, end_index, 1):
         # Load the current and next screenshots
         current_image = 'moving_down_lab/screenshot_{}.png'.format(i)
         next_image = 'moving_down_lab/screenshot_{}.png'.format(i + 1)
