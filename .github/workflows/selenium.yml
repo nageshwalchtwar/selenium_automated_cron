@@ -7,8 +7,8 @@
 #   schedule:
 #     - cron: '23 11 * * *'
 
-# on:
-#     workflow_dispatch:
+on:
+    workflow_dispatch:
 
 # on:
 #   push:
