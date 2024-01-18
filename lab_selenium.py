@@ -218,8 +218,7 @@ for action in actions:
     if total <= 1:
         total += 1
         status = "Working"
-    else:
-        status = "Not working or OFFLINE"
+
         
         
     perform_action(action)
