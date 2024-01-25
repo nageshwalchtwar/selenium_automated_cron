@@ -60,7 +60,7 @@ jobs:
         
       - name: Installing all necessary packages
         run: |
-          pip install selenium pyyaml pillow imagehash python-dotenv scikit-image webdriver-manager matplotlib
+          pip install selenium pyyaml pillow imagehash python-dotenv scikit-image webdriver-manager matplotlib csv pandas
 
       - name: Install xvfb
         run: sudo apt-get install xvfb
