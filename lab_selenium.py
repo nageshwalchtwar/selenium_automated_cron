@@ -227,11 +227,7 @@ for action in actions:
     data = {
         "value": status
     }
-    import csv
-    with open('vr status.csv', 'a') as f:
-        writer = csv.writer(f)
-        writer.writerow([datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),status])
-        
+    
     with open('data.json', 'w') as json_file:
         json.dump(data, json_file)
 
