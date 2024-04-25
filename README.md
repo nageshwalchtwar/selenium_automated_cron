@@ -2,7 +2,7 @@ This is the script to check Remote Labs experiment availability status.
 
 To run this script - 
 1. Install all the dependencies -> selenium workflow file
-2. Selet webdriver according to your OS
+2. Select web driver according to your OS ( browser )
 
 run - 
 1. timing script
