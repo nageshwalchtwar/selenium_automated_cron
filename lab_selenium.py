@@ -207,11 +207,16 @@ def perform_action(element):
             except NoAlertPresentException:
                 break  # Break out of the outer loop if no alert is present
 
+def zoom_out(driver, zoom_level=0.8):
+    driver.execute_script(f"document.body.style.zoom='{zoom_level}'")
+
 
 # Load the website
 driver.get('https://remote-labs.in')
 # Perform the actions specified in the YAML file
 time.sleep(3)
+
+zoom_out(driver, 0.6)
 import json
 for action in actions:
     print(action)
