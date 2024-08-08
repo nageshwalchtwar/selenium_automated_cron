@@ -283,6 +283,11 @@ if direction_check[0] == direction_check[1] == "still" :
     subprocess.run(["git", "add", "data.json"])
     subprocess.run(["git", "commit", "-m", "Update data.json"])
     subprocess.run(["git", "push", "origin", "main"]) 
+
+
+    subprocess.run(["git", "add", "status_log.csv"])
+    subprocess.run(["git", "commit", "-m", "Update status_log.csv"])
+    subprocess.run(["git", "push", "origin", "main"]) 
 elif direction_check[0] == "still" and direction_check[1] == "up": 
     recipients =  ["nageshwalchtwar257@gmail.com", "vedant.nipane@students.iiit.ac.in","abhinav.marri@research.iiit.ac.in"]
     send_email(recipients, ''' Hi, I'm Vanishing Rod,
@@ -317,6 +322,9 @@ elif direction_check[0] == "down" and direction_check[1] == "up" or direction_ch
     subprocess.run(["git", "push", "origin", "main"]) 
 
 
+    subprocess.run(["git", "add", "status_log.csv"])
+    subprocess.run(["git", "commit", "-m", "Update status_log.csv"])
+    subprocess.run(["git", "push", "origin", "main"]) 
 
 
 print(direction_check)
