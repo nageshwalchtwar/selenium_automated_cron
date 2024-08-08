@@ -181,6 +181,25 @@ def compare_ss(f_path):
             return "Distances list is empty."
 
 
+def log_status_to_csv(status, file_path='status_log.csv'):
+    # Log the current status with a timestamp into a CSV file
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log_entry = [timestamp, status]
+    
+    # Check if the CSV file exists
+    file_exists = os.path.isfile(file_path)
+
+    # Open the CSV file and append the log entry
+    with open(file_path, 'a', newline='') as csvfile:
+        csv_writer = csv.writer(csvfile)
+        
+        # Write the header if the file is new
+        if not file_exists:
+            csv_writer.writerow(['Timestamp', 'Status'])
+        
+        # Write the log entry
+        csv_writer.writerow(log_entry)
+        
 #importing data from the log files
 import os 
 import re 
@@ -259,7 +278,7 @@ if direction_check[0] == direction_check[1] == "still" :
 
     with open('data.json', 'w') as json_file:
         json.dump(data, json_file)
-
+    log_status_to_csv(status)
     # Add, commit, and push the changes
     subprocess.run(["git", "add", "data.json"])
     subprocess.run(["git", "commit", "-m", "Update data.json"])
@@ -278,6 +297,7 @@ elif direction_check[0] == "up" and direction_check[1] == "down":
                                                 Experiment is having some issue, Direction change and threads are wound up.
                                                 kindly check the experiment 
                                                     - Maintainance Team ( Vanishing Rod )''', 'mail sent')
+    log_status_to_csv(status)
 elif direction_check[0] == "down" and direction_check[1] == "up" or direction_check[1]=="still" or direction_check[0]=="Distances list is empty" or direction_check[1]=="Distances list is empty":
     status = "Working"
     recipients = ["theccbussiness@gmail.com"]
@@ -287,7 +307,7 @@ elif direction_check[0] == "down" and direction_check[1] == "up" or direction_ch
     data = {
         "value": status
     }
-
+    log_status_to_csv(status)
     with open('data.json', 'w') as json_file:
         json.dump(data, json_file)
 
