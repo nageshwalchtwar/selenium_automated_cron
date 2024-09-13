@@ -2,9 +2,9 @@ name: Run Selenium On GitHub Action
 
 
 
-on:
- schedule:
-   - cron: '0 */12 * * *'
+# on:
+#  schedule:
+#    - cron: '0 */12 * * *'
 
 # on:
 #   schedule:
